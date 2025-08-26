@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webflow Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: 100%;
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-600">WEBFLOW DEV</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
+                <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition">Projects</a>
+                <a href="#experience" class="text-gray-700 hover:text-indigo-600 transition">Experience</a>
+                <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition">Skills</a>
+                <a href="#contact" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl text-gray-700"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center hero-gradient pt-16">
+        <div class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Hi, I'm Shivansh  <span class="text-indigo-600"> A Webflow Developer</span></h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    With 2 years of professional experience creating beautiful, responsive websites in Webflow. I specialize in custom animations, CMS setups, and e-commerce solutions.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#projects" class="px-6 py-3 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700 transition">View My Work</a>
+                    <a href="#contact" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-md font-medium hover:bg-gray-50 transition">Hire Me</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-indigo-100 overflow-hidden border-4 border-indigo-200">
+                        <img src="Images/me.jpg" alt="Professional Webflow developer working on laptop with multiple screens in modern home office" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center space-x-2 text-indigo-600">
+                            <i class="fas fa-medal text-xl"></i>
+                            <span class="font-medium">2+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center scroll-indicator">
+            <p class="text-gray-500 mb-2">Scroll down</p>
+            <i class="fas fa-chevron-down text-gray-400"></i>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Here are some of my best Webflow projects showcasing my design and development skills.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card rounded-xl overflow-hidden bg-white">
+                    <div class="h-64 overflow-hidden">
+                        <img src="Images/E-comm.png" alt="Modern e-commerce website with clean product grid and soft color palette built in Webflow" class="w-full h-full object-cover transition duration-500 hover:scale-105" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">E-Commerce Store</h3>
+                        <p class="text-gray-600 mb-4">A fully responsive online store with custom product pages, cart functionality, and checkout flow built entirely in Webflow.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Webflow</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">E-commerce</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">CMS</span>
+                        </div>
+                        <a href="http://127.0.0.1:5500/Portfolio/Projects/e-commerce.html" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card rounded-xl overflow-hidden bg-white">
+                    <div class="h-64 overflow-hidden">
+                        <img src="Images/Corporate.png" alt="Corporate business website with interactive elements and smooth scrolling animations in Webflow" class="w-full h-full object-cover transition duration-500 hover:scale-105" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Corporate Website</h3>
+                        <p class="text-gray-600 mb-4">A professional business website with custom animations, CMS for team members, and interactive elements.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Webflow</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">CMS</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Animations</span>
+                        </div>
+                        <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card rounded-xl overflow-hidden bg-white">
+                    <div class="h-64 overflow-hidden">
+                        <img src="Images/portfo.png" alt="Creative portfolio website with horizontal scrolling and micro-interactions designed in Webflow" class="w-full h-full object-cover transition duration-500 hover:scale-105" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Creative Portfolio</h3>
+                        <p class="text-gray-600 mb-4">A unique portfolio with horizontal scrolling, micro-interactions, and bold typography.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Webflow</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Interactions</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Design</span>
+                        </div>
+                        <a href="#" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-6 py-3 border border-gray-300 text-gray-700 rounded-md font-medium hover:bg-gray-50 transition">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Experience</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">My journey as a Webflow developer over the past 2 years.</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <!-- Experience 1 -->
+                <div class="relative pl-8 timeline-item mb-12">
+                    <div class="absolute left-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-indigo-100"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Webflow Developer</h3>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Current</span>
+                        </div>
+                        <div class="text-gray-600 mb-4">
+                            <p class="font-medium">Design Agency</p>
+                            <p>Jan 2023 - Present</p>
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Developed 20+ Webflow websites for clients across various industries</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Created custom animations and interactions to enhance user experience</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Set up CMS structures for blogs, portfolios, and business directories</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="relative pl-8 timeline-item mb-12">
+                    <div class="absolute left-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-indigo-100"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Junior Web Developer</h3>
+                        </div>
+                        <div class="text-gray-600 mb-4">
+                            <p class="font-medium">Digital Studio</p>
+                            <p>Jun 2021 - Dec 2022</p>
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Assisted in building and maintaining websites using Webflow</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Collaborated with designers to implement responsive layouts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Learned advanced Webflow techniques and best practices</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Education -->
+                <div class="relative pl-8">
+                    <div class="absolute left-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-indigo-100"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Web Development Certification</h3>
+                        </div>
+                        <div class="text-gray-600 mb-4">
+                            <p class="font-medium">Online Course Platform</p>
+                            <p>Mar 2021 - May 2021</p>
+                        </div>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Completed intensive Webflow and front-end development training</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Specialized in responsive design and CMS implementation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Technical Skills</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Here are the tools and technologies I specialize in as a Webflow developer.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Webflow Expertise</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Responsive Design</span>
+                                <span class="text-gray-600">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">CMS Implementation</span>
+                                <span class="text-gray-600">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Custom Interactions</span>
+                                <span class="text-gray-600">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">E-Commerce</span>
+                                <span class="text-gray-600">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Complementary Skills</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">HTML/CSS</span>
+                                <span class="text-gray-600">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">JavaScript</span>
+                                <span class="text-gray-600">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">UI/UX Design</span>
+                                <span class="text-gray-600">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">SEO Optimization</span>
+                                <span class="text-gray-600">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <h3 class="text-xl font-bold text-gray-800 text-center mb-6">Tools I Use</h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="p-4 bg-gray-50 rounded-lg flex items-center">
+                        <img src="Images/webf 1.png" alt="Webflow logo" class="w-10 h-10 mr-3" />
+                        <span class="font-medium text-gray-700">Webflow</span>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg flex items-center">
+                        <img src="Images/figm.svg" alt="Figma logo" class="w-10 h-10 mr-3" />
+                        <span class="font-medium text-gray-700">Figma</span>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg flex items-center">
+                        <img src="Images/Adobe.png" alt="Adobe Creative Cloud logo" class="w-10 h-10 mr-3" />
+                        <span class="font-medium text-gray-700">Adobe CC</span>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg flex items-center">
+                        <img src="Images/ga.png" alt="Google Analytics logo" class="w-10 h-10 mr-3" />
+                        <span class="font-medium text-gray-700">Google Analytics</span>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg flex items-center">
+                        <img src="Images/js.svg" alt="JavaScript logo" class="w-10 h-10 mr-3" />
+                        <span class="font-medium text-gray-700">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-indigo-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Let's Work Together</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have a Webflow project in mind? Get in touch and let's discuss how I can help bring your vision to life.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 md:p-12 bg-indigo-600 text-white">
+                        <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
+                        <p class="mb-8">Fill out the form or reach out directly through one of these channels:</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p class="text-indigo-200">work.shivansh19@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Phone</h4>
+                                    <p class="text-indigo-200">+91 8299403383</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fab fa-linkedin-in text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">LinkedIn</h4>
+                                    <p class="text-indigo-200">https://www.linkedin.com/feed/</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-12">
+                        <form>
+                            <div class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                </div>
+                                <div>
+                                    <label for="project" class="block text-gray-700 font-medium mb-2">Project Type</label>
+                                    <select id="project" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                        <option value="">Select project type</option>
+                                        <option value="website">Website Development</option>
+                                        <option value="ecommerce">E-Commerce Store</option>
+                                        <option value="portfolio">Portfolio Website</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py
